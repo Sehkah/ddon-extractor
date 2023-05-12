@@ -117,6 +117,7 @@ public class DeserializerFactory {
         DESERIALIZER_MAP.put(".smc", new SituationMsgCtrlDeserializer());
         DESERIALIZER_MAP.put(".sdt", new StaminaDecTblDeserializer());
         DESERIALIZER_MAP.put(".paw", new AIPawnAutoWordTblDeserializer());
+        DESERIALIZER_MAP.put(".tmc", new TblMenuCommDeserializer());
     }
 
     private final Logger logger = LogManager.getLogger(DeserializerFactory.class);

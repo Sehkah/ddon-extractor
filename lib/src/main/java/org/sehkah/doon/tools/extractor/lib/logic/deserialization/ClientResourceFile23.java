@@ -212,7 +212,6 @@ public enum ClientResourceFile23 {
     rStatusCheck(".sck", new FileHeader("sck\0", 111, 4)),
     rSwingModel(".swm", new FileHeader("swm\0", 111, 4)),
     rTargetCursorOffset(".tco", new FileHeader("tco\0", 111, 4)),
-    rTblMenuComm(".tmc", new FileHeader("tmc\0", 111, 4)),
     rTblMenuOption(".tmo", new FileHeader("tmo\0", 111, 4)),
     rTexDetailEdit(".tde", new FileHeader("tde\0", 111, 4)),
     rTexture(".tex", new FileHeader("tex\0", 111, 4)),
