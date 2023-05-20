@@ -1,0 +1,28 @@
+version: '3.8'
+
+volumes:
+  ddon-client-database-volume:
+
+services:
+  db:
+    container_name: ddon-client-database
+    image: postgres:15.3-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-ddonclient}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-ddonclient}
+      PGDATA: /var/lib/postgresql/data/pgdata
+      LANG: en_US.utf8
+      POSTGRES_INITDB_ARGS: --locale-provider=icu --icu-locale=en-US
+    ports:
+      - '5432:5432'
+    volumes:
+      - ddon-client-database-volume:/var/lib/postgresql/data/pgdata
+      - ./scripts/:/docker-entrypoint-initdb.d/
+      - ./postgresql.conf:/etc/postgresql/postgresql.conf
+    command: postgres -c config_file=/etc/postgresql/postgresql.conf
+    deploy:
+      resources:
+        limits:
+          cpus: '1.00'
+          memory: 1024M
